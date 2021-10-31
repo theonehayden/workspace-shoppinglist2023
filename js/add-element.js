@@ -14,7 +14,9 @@
 function addElement() {
   // add a new element
   // add a input text box
+  
   // whenever the user are done add the element
+  
 }
 
 // bind click with the event handler
@@ -27,5 +29,5 @@ function changeStyle() {}
 document.getElementById('remove').addEventListener('click', removeElement);
 
 function removeElement() {
-  // remove the marked element
+  // remove the marked elements  -- element with style complete
 }
