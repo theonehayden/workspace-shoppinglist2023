@@ -39,9 +39,9 @@
     const firebaseConfig = {
       apiKey: "AIzaSyAzcwgZuLA7dO9g4sQhXQVTUgCo0M8m2qM",
       authDomain: "grocerylist-91956.firebaseapp.com",
-      databaseURL: "https://grocerylist-91956.firebaseio.com",
-      projectId: "grocerylist-91956",
-      storageBucket: "grocerylist-91956.appspot.com",
+      databaseURL: "https://shopping-list-fc643.firebaseio.com",
+      projectId: "shopping-list-fc643",
+      storageBucket: "shopping-list-fc643.appspot.com",
       messagingSenderId: "813812426276",
       appId: "1:813812426276:web:93e5897af12892ff78dab1",
       measurementId: "G-VZ83BTR72T"
@@ -50,9 +50,34 @@
       firebase.initializeApp(firebaseConfig);
       const db = firebase.firestore();
 
+    // Read the data from the databse and update the list
+    $('li').remove();
+
+    db.collection("shoppinglist").get().then((querySnapshot)=>{
+      
+      querySnapshot.forEach((doc) => {
+        var item = doc.data(),item;
+        console.log("loading....", item);
+      });
+      // Update the list
+
+
+    });
+    
+
+
     // Save the list to database
+    $("#save").click(function(){
+      //Testing if the database is connected
+      // Clear the atabse befor you save
+      $('li').each(function(){
+        var value =$(this).text();
+        console.log("Saving ", value);
+        db.collection("shoppinglist").add({item: value});
 
-
+      });
+    })
+    db.collection("shoppinglist").add({item:"apple"});
   </script>
 
 
